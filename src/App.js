@@ -162,8 +162,8 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 10) {
-      newMintAmount = 10;
+    if (newMintAmount > 200) {
+      newMintAmount = 200;
     }
     setMintAmount(newMintAmount);
   };
@@ -199,14 +199,21 @@ function App() {
         flex={1}
         ai={"center"}
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
-        image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
+        // image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
-        <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
+        {/* <StyledLogo alt={"logo"} src={"/config/images/logo.png"} /> */}
+        <s.TextTitle
+          style={{
+            textAlign: "center",
+            fontSize: 50,
+            fontWeight: "bold",
+            color: "var(--primary-text)",
+          }}
+        >
+          Meta Gorillaz
+        </s.TextTitle>
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-          <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg alt={"example"} src={"/config/images/example.gif"} />
-          </s.Container>
           <s.SpacerLarge />
           <s.Container
             flex={2}
@@ -220,6 +227,9 @@ function App() {
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
+            <s.Container flex={1} jc={"center"} ai={"center"}>
+              <StyledImg alt={"example"} src={"/config/images/gorilla.gif"} />
+            </s.Container>
             <s.TextTitle
               style={{
                 textAlign: "center",
@@ -370,13 +380,13 @@ function App() {
             <s.SpacerMedium />
           </s.Container>
           <s.SpacerLarge />
-          <s.Container flex={1} jc={"center"} ai={"center"}>
+          {/* <s.Container flex={1} jc={"center"} ai={"center"}>
             <StyledImg
               alt={"example"}
-              src={"/config/images/example.gif"}
+              src={"/config/images/gorilla.gif"}
               style={{ transform: "scaleX(-1)" }}
             />
-          </s.Container>
+          </s.Container> */}
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
@@ -400,6 +410,16 @@ function App() {
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
             successfully mint your NFT. We recommend that you don't lower the
             gas limit.
+          </s.TextDescription>
+          <s.SpacerSmall />
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+            }}
+          >
+            This minting Dapp was made using Hashlips Minting Dapp. Special
+            Thanks to Daniel for making his codes available.
           </s.TextDescription>
         </s.Container>
       </s.Container>
